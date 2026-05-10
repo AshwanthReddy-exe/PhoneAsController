@@ -1,0 +1,27 @@
+// Root build script — shared configuration across all modules
+plugins {
+    id 'base'
+}
+
+allprojects {
+    group = 'com.airconsole'
+    version = '0.1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    version = rootProject.version
+    group = rootProject.group
+}
+
+// Aggregate tasks for the root project
+tasks.register('allTests', GradleBuild) {
+    tasks = ['test']
+}
+
+tasks.register('allBuild', GradleBuild) {
+    tasks = ['build']
+}

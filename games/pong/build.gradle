@@ -1,0 +1,13 @@
+plugins {
+    id 'java-conventions'
+    id 'checkstyle-conventions'
+}
+
+dependencies {
+    implementation project(':common-lib')
+}
+
+jar {
+    archiveBaseName = 'pong-game'
+    archiveClassifier = 'engine'
+}

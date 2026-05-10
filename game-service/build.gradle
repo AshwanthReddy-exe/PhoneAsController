@@ -1,0 +1,27 @@
+plugins {
+    id 'java-conventions'
+    id 'spring-boot-conventions'
+    id 'publishing-conventions'
+    // id 'checkstyle-conventions'
+}
+
+dependencies {
+    implementation project(':common-lib')
+    implementation project(':games:snake')
+    implementation project(':games:pong')
+    implementation project(':games:trivia')
+
+    // Lock-free ring buffer for input queue
+    implementation 'org.jctools:jctools-core:4.0.5'
+
+    // Protobuf for binary serialization
+    implementation 'com.google.protobuf:protobuf-java:3.25.3'
+
+    testImplementation 'org.testcontainers:redis:1.19.8'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+}
+
+bootJar {
+    archiveBaseName = 'game-service'
+}

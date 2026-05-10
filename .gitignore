@@ -1,0 +1,66 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+gradle-app.setting
+.gradletasknamecache
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+
+# IDEA
+.idea/
+*.ipr
+*.iws
+*.iml
+out/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Test reports
+/reports/
+
+# Docker
+infra/docker-compose.override.yml
+
+# Infra data volumes (if accidentally committed)
+infra/volumes/
+
+# Node.js (frontend)
+node_modules/
+dist/
+coverage/
+
+# Frontend build artifacts
+frontend/apps/*/dist/
+frontend/apps/*/.vite/
+
+# Local Maven repo
+!.mvn/wrapper/maven-wrapper.jar
