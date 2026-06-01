@@ -1,0 +1,32 @@
+# server.port=8085
+server:
+  port: 8085
+
+spring:
+  application:
+    name: score-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/airconsole
+    username: airconsole
+    password: airconsole
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+
+logging:
+  level:
+    com.airconsole.score: DEBUG
