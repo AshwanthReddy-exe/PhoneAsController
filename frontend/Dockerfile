@@ -3,16 +3,16 @@ FROM node:22-alpine AS builder
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@9.15.1 --activate
 
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-COPY turbo.json ./
-COPY packages ./packages
-COPY apps/lobby/package.json ./apps/lobby/
-COPY apps/screen/package.json ./apps/screen/
-COPY apps/controller/package.json ./apps/controller/
+COPY frontend/package.json frontend/pnpm-lock.yaml frontend/pnpm-workspace.yaml ./
+COPY frontend/turbo.json ./
+COPY frontend/packages ./packages
+COPY frontend/apps/lobby/package.json ./apps/lobby/
+COPY frontend/apps/screen/package.json ./apps/screen/
+COPY frontend/apps/controller/package.json ./apps/controller/
 
 RUN pnpm install --frozen-lockfile
 
-COPY . .
+COPY frontend/ .
 RUN pnpm build
 
 FROM nginx:alpine

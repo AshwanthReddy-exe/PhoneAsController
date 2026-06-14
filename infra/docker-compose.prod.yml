@@ -2,19 +2,18 @@ version: "3.9"
 
 services:
   nginx:
-    image: nginx:alpine
+    build:
+      context: ..
+      dockerfile: frontend/Dockerfile
     container_name: airconsole-nginx
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/ssl:/etc/nginx/ssl:ro
-      - ../frontend/apps/lobby/dist:/usr/share/nginx/html/lobby:ro
-      - ../frontend/apps/screen/dist:/usr/share/nginx/html/screen:ro
-      - ../frontend/apps/controller/dist:/usr/share/nginx/html/controller:ro
     depends_on:
       - api-gateway
+    restart: unless-stopped
 
   postgres:
     image: postgres:16-alpine
