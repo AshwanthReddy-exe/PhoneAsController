@@ -51,9 +51,9 @@ function App() {
             if (envelope.payload?.gameType) {
               setGameType(envelope.payload.gameType as GameType);
             }
-          } else if (envelope.eventType === 'GameStateUpdatedEvent' && envelope.payload && envelope.payload.snapshot && envelope.payload.snapshot.payload) {
+          } else if (envelope.eventType === 'GameStateUpdatedEvent' && envelope.payload && envelope.payload.snapshot && envelope.payload.snapshot.statePayload) {
             setGameStarted(true);
-            const decodedPayload = atob(envelope.payload.snapshot.payload);
+            const decodedPayload = atob(envelope.payload.snapshot.statePayload);
             const state = JSON.parse(decodedPayload);
             setGameState(state);
           } else if (envelope.eventType === 'PlayerJoinedEvent' || envelope.eventType === 'PlayerJoinedRoomEvent') {

@@ -64,3 +64,14 @@ frontend/apps/*/.vite/
 
 # Local Maven repo
 !.mvn/wrapper/maven-wrapper.jar
+
+# Agent and custom files
+.claude/
+.kimchi/
+.agents/
+c.txt
+walkthrough.md
+task.md
+implementation_plan.md
+analysis_results.md
+repomix-output.xml
